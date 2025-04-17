@@ -10,8 +10,8 @@
             <th>Task</th>
             <th>Completed or/not</th>
             
-            <th>Due date</th>
-            <th>days_left</th>
+            <th>Deadline</th>
+            <th>Remaining data</th>
             <th>Created data</th>
             <th>Actions</th>
         </tr>
@@ -21,18 +21,18 @@
                 <!-- Checkbox for completed -->
                 <td>
                     <form action="/toggle/{{ task.id }}" method="POST">
-                        <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+                        <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task.is_completed %}checked{% endif %}>
                     </form>
                 </td>
                 
                 <td>{{ task.due_date }}</td>
                 <td>
-                    {% if task.days_left is none %}
+                    {% if task.days_remaining is none %}
                         <span style="color: gray;">Not set</span>
-                    {% elif task.days_left <= 0 %}
+                    {% elif task.days_remaining  <= 0 %}
                         <span style="color: red;">Overdue!</span>
                     {% else %}
-                        {{ task.days_left }} day(s) left
+                        {{ task.days_remaining  }} day(s) left
                     {% endif %}
                 </td>
                 
