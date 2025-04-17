@@ -1,0 +1,16 @@
+# Ignore Python virtual environments
+venv/
+__pycache__/
+
+# Ignore secret config files
+.env
+
+# Ignore IDE/project junk
+.vscode/
+*.log
+.DS_Store
+
+# Ignore migrations if auto-generated
+migrations/
+templates/
+static/
